@@ -1,0 +1,157 @@
+/* ======== - ======== - ======== - ======== - ======== - ======== - ======== - ======== */
+/* Main */
+
+main {
+    position: relative;
+    min-height: 100px;
+    background-color: var(--theme);
+    display: grid;
+    // grid-template-areas:    "gallery gallery gallery social_media social_media social_media"
+    //                         "blank blank blank social_media social_media social_media"
+    //                         "other other other other other other";
+    // grid-template-columns: repeat(2, 2.5fr) repeat(2, 1.5fr) repeat(2, 2.5fr);
+    grid-template-areas:    "gallery gallery gallery social_media social_media"
+                            "blank blank blank social_media social_media"
+                            "other other other other other";
+    grid-template-columns: repeat(3, 1fr) repeat(2, 256px);
+    grid-template-rows: repeat(3, min-content);
+    
+    #gallery, #social_media, #other, #thigh {
+        width: 100%;
+        padding: 16px 0;
+        overflow: hidden;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #gallery, #other, #thigh {
+        text-shadow: var(--color-shadow-primary);
+    }
+    @media screen and (max-width: 768px) {
+        grid-template-areas:    "gallery"
+                                "blank"
+                                "social_media"
+                                "other";
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(4, min-content);
+        #gallery { grid-area: gallery; }
+        #blank { grid-area: blank; }
+        #social_media { grid-area: social_media; }
+        #other { grid-area: other; }
+    }
+    
+    // #gallery {}
+    #blank {
+        grid-area: blank;
+    }
+    #social_media { 
+        grid-area: social_media; 
+        padding: 24px 16px;
+        
+        @media screen and (max-width: 768px) {
+            padding: 44px 0;
+        }
+        
+        &:target {
+            background-color: var(--fb-bg-primary);
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 0;
+            z-index: 99;
+
+            div.scrollmsn {
+                background-color: var(--fb-bg-primary);
+                width: 100%;
+                max-width: 100%;
+                height: 100%;
+                padding: 0;
+                overflow: scroll; 
+                border-radius: 0;
+                box-shadow: 0;
+            }
+        }
+    }
+    #other { 
+        grid-area: other; 
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .quotes {
+            position: relative;
+            width: 100%;
+            height: 192px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 12px;
+            
+            #textQuotes {
+                
+                & {
+                    position: relative;
+                    display: inline-block;
+                    border-bottom: 1px dotted black;
+                }
+
+                .tooltiptext {
+                    width: 244px;
+                    background-color: var(--bg-primary);
+                    color: var(--color-primary);
+                    text-align: center;
+                    border-radius: 8px;
+                    padding: 8px;
+                    position: absolute;
+                    bottom: 125%;
+                    left: 40%;
+                    margin-left: -132px;
+                    transition: opacity 0.3s;
+                }
+
+                .tooltiptext::after {
+                    content: "";
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    margin-left: -8px;
+                    border-width: 8px;
+                    border-style: solid;
+                    border-color: var(--bg-primary) transparent transparent transparent;
+                }
+            }
+            
+            #profileQuotes {
+                position: relative;
+                width: 64px;
+                height: 64px;
+                border: 2px solid var(--bg-primary);
+                border-radius: 50%;
+                background-image: var(--photo-profile);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                
+                &::before, &::after {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    transform: translate(0, -50%);
+                    width: 24px;
+                    height: 24px;
+                    background-color: var(--bg-primary);
+                    border: 2px solid var(--bg-primary);
+                    border-radius: 50%;
+                    opacity: 0.4;
+                }
+                &::before { left: -60%; }
+                &::after { right: -60%; }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,149 @@
+/* ======== - ======== - ======== - ======== - ======== - ======== - ======== - ======== */
+/* topup */
+
+#topup {
+    position: fixed;
+    top: -200vh;
+    left: 0;
+    
+    background-color: rgba(0,0,0,0.4);
+    width: 100%;
+    height: 100vh;
+    transition: .3s;
+    z-index: 9;
+
+    &.show {
+        top: 0;
+    }
+
+    #modal {
+        background-color: var(--body-primary);
+        color: black;
+        width: 92%;
+        max-width: 576px;
+        border-radius: 8px;
+        padding: 8px;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+
+        display: grid;
+        grid-template-areas: 
+            "mdl1 mdl1"
+            "mdl2 mdl3"
+            "mdl4 mdl4"
+        ;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, auto) min-content;
+        gap: 12px;
+
+        @media screen and (max-width: 768px) {
+            grid-template-areas: 
+                "mdl1 mdl1"
+                "mdl2 mdl2"
+                "mdl3 mdl3"
+                "mdl4 mdl4"
+            ;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, auto) min-content;
+            gap: 12px;
+
+            #mdl1 { grid-area: mdl1; }
+            #mdl2 { grid-area: mdl2; }
+            #mdl3 { grid-area: mdl3; }
+            #mdl4 { grid-area: mdl4; }
+        }
+        
+        // :nth-child(n+0) {
+        //     border: 1px solid red;
+        // }
+
+        p {
+            color: var(--color-secondary);
+            font-size: 14px;
+        }
+
+        #mdl1 {
+            grid-area: mdl1;
+            padding: 4px;
+
+            div {
+                width: 100%;
+                border-bottom: 1px solid rgba(0,0,0,0.4);
+                color: var(--bg-primary);
+                font-size: 24px;
+                font-weight: bold;
+                padding: 4px;
+
+                display: flex;
+                justify-content: center;
+            }
+        }
+        #mdl2 {
+            grid-area: mdl2;
+
+            img {
+                max-width: 240px;
+                border: 1px solid var(--bg-primary);
+                border-radius: 4px;
+            }
+        }
+        #mdl3 {
+            grid-area: mdl3;
+            text-align: center;
+            
+            p#countdown_tp {
+                font-size: 44px;
+                font-weight: bold;
+            }
+        }
+        #mdl4 {
+            grid-area: mdl4;
+            padding: 12px 0;
+
+            .register {
+                background-color: var(--bg-primary);
+                color: var(--color-primary);
+                font-size: 20px;
+                font-weight: bold;
+                text-decoration: none;
+                padding: 8px 36px;
+                border-radius: 4px;
+
+                &:hover {
+                    background-color: var(--color-primary);
+                    color: var(--bg-primary);
+                }
+            }
+        }
+        
+        #mdl1, #mdl2, #mdl3, #mdl4 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            gap: 8px;
+        }
+        
+        #xTopup {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+
+            font-size: 24px;
+            border-radius: 50%;
+            // background-color: rgba(0,0,0,0);
+            // color: var(--bg-primary);
+            padding: 0 6px;
+            cursor: pointer;
+            transform: scale(.9);
+            transition: .1s;
+
+            &:hover {
+                transform: scale(1);
+            }
+        }
+    }
+}

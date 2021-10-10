@@ -1,0 +1,50 @@
+/* ======== - ======== - ======== - ======== - ======== - ======== - ======== - ======== */
+/* footer */
+
+.thigh { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-primary);
+    opacity: 0.9;
+    color: var(--color-primary);
+    text-align: center;
+    padding: 4px;
+    @media screen and (max-width: 768px) {
+        font-size: 14px;
+    }
+    div.support {
+        margin: 5px 20px;
+
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+
+        img {
+            max-width: 80vw;
+            max-height: 64px;
+
+            @media screen and (max-width: 768px) {
+                max-width: 80vw;
+                max-height: 64px;
+            }
+        }
+    }
+}
+footer {
+    background-color: var(--bg-primary);
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    border-top: 0.5px solid rgba(0,0,0,0.1);
+    p {
+        color: var(--color-primary);
+        font-size: 16px;
+        text-align: center;
+    }
+}
+    

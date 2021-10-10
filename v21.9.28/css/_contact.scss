@@ -1,0 +1,75 @@
+/* ======== - ======== - ======== - ======== - ======== - ======== - ======== - ======== */
+/* Contact */
+
+.contact {
+    position: fixed; top: 0; left: 0;
+    background-color: rgba(0,0,0,0.5);
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    z-index: 9;
+
+    &:target {
+        display: block;
+        }
+    .cont {
+        position: absolute; top: 10%; left: 50%;
+        transform: translate(-50%, 0);
+        width: 100%;
+        max-width: 480px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 1px white, -1px -1px 1px white;
+        overflow: hidden;
+        transition: .5s;
+
+        div {
+            &:nth-child(1) {
+                background-color: var(--bg-primary);
+                text-align: right;
+                padding: 0 16px;
+                button {
+                    font-size: 42px;
+                    }
+                }
+            &:nth-child(2) {
+                padding: 16px;
+                }
+            &:nth-child(3) {
+                background-color: var(--bg-primary);
+                text-align: right;
+                padding: 0 16px;
+                button {
+                    font-size: 24px;
+                    margin: 8px 0;
+                    }
+                }
+            }
+        }
+    input {
+        width: 100%;
+        border: 0;
+        border-bottom: 1px solid black;
+        }
+    textarea {
+        min-width: 97.5%;
+        max-width: 97.5%;
+        min-height: 192px;
+        max-height: 320px;
+        border: 1px solid black;
+        padding: 5px;
+        }
+    button {
+        background-color: rgba(0,0,0,0);
+        border: 0;
+        color: var(--color-primary);
+        font-weight: bold;
+        transform: scale(0.8);
+        cursor: pointer;
+        transition: .2s;
+
+        &:hover {
+            transform: scale(1);
+            }
+        }
+    }

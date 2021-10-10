@@ -1,0 +1,284 @@
+@keyframes loadnewcomment {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.4);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ======== - ======== - ======== - ======== - ======== - ======== - ======== - ======== */
+/* Facebook-Comments */
+
+div#auto_comments {
+    background-color: var(--fb-bg-primary);
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    padding: 12px 8px 8px 8px;
+    overflow: scroll; 
+    border-radius: 10px;
+    box-shadow: 0.5px 0.5px 2.5px #888, -0.5px 0.5px 2.5px #888, 0.5px -0.5px 2.5px #888, -0.5px -0.5px 2.5px #888;
+
+    &::-webkit-scrollbar { 
+        width: 2px; 
+        height: 2px; 
+    }
+    &::-webkit-scrollbar-thumb:hover { 
+        background: grey; 
+    }
+    &::-webkit-scrollbar-track { 
+        border-radius: 5px; 
+    }
+    &::-webkit-scrollbar-thumb { 
+        background: grey; 
+        border-radius: 5px; 
+    }
+    
+    #oldComments {
+        .fb_comment_wrapper {
+            padding: 4px 4px 12px 4px;
+
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 8px;
+
+            button {
+                background-color: rgba(0,0,0,0);
+                border: 0;
+                color: var(--fb-color-primary);
+                font-size: 16px;
+                font-weight: bold;
+
+                &:hover {
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+
+            #oldCommentAnimate {
+                width: 10px;
+                height: 10px;
+                display: none;
+
+                &.active {
+                    display: unset;
+                    animation: spin 1.2s linear infinite;
+                }
+            }
+        }
+    }
+
+    .loadnewcomment {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 8px;
+
+        :nth-child(n+0) {
+            height: 3px;
+            width: 3px;
+            border-radius: 50%;
+            background-color: #333;
+            margin: 3px;
+            font-weight: bold;
+            color: white;
+            animation: loadnewcomment 1.5s alternate infinite;
+        }
+        :nth-child(1) {
+            animation-delay: .4s;
+        }
+        :nth-child(2) {
+            animation-delay: .6s;
+        }
+        :nth-child(3) {
+            animation-delay: .8s;
+            height: 4px;
+            width: 4px;
+        }
+    }
+
+    #oldComments, #currentComments, #newComments {
+        
+        .msn { 
+            width: 100%; 
+            text-align: left;
+
+            .profile { 
+                width: 40px; 
+                height: 40px; 
+                border-radius: 50%; 
+                cursor: pointer; 
+            }
+    
+            .sticker {
+                display: inline-block;
+            }
+    
+            .img_small, .img_medium, .img_large, .emoticon {
+                display: inline-block;
+            }
+    
+            .img_small {
+                width: 80px;
+                height: 80px;
+            }
+            .img_medium {
+                max-width: 260px; 
+                max-height: 210px;
+                border: 1px solid #ddd;
+                border-radius: 10px;
+            }
+            .img_large {
+                max-width: 90%; 
+                max-height: 396px;
+                border: 1px solid #ddd;
+                border-radius: 10px;
+            }
+            .emoticon {
+                width: 16px;
+                height: 16px;
+                position: relative; 
+                top: 2px; 
+                left: 0px;
+            }
+        }
+        
+        .icon { 
+            width: 64px; 
+            height: 36px; 
+        }
+        
+        div.reactions { 
+            width: fit-content;
+            padding-left: 15px; 
+    
+            .react, .reply { 
+                color: var(--fb-react-primary);
+                font-size: 12px; 
+                font-weight: bold;
+                text-decoration: none; 
+                cursor: pointer;
+    
+                &:hover { 
+                    text-decoration: underline;
+                }
+            }
+            .justnow { 
+                color: var(--fb-justnow-primary); 
+                font-size: 12px; 
+            }
+        }
+        .comment { 
+            width: fit-content;
+            background-color: #f7f7f7; 
+            font-size: 14px; 
+            padding: 8px 12px; 
+            color: black; 
+            border-radius: 15px; 
+    
+            .name { 
+                color: var(--fb-color-primary); 
+                font-size: 15px; 
+                font-weight: bold; 
+                margin-bottom: 121px;
+                text-decoration: none; 
+                cursor: pointer; 
+        
+                &:hover { 
+                    text-decoration: underline; 
+                }
+            }
+            img {
+                display: inline-block;
+            }
+        }
+        
+        p.name { 
+            position: relative; 
+            bottom: -8px; 
+            padding-left: 15px; 
+        } 
+        .facebook_profile { 
+            width: 35px; 
+            height: 35px; 
+            border: 0.75px solid grey;
+            border-radius: 50%; 
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative; top: inherit;
+            cursor: pointer; 
+        }
+    
+        .reactor {
+            position: relative; bottom: 6px; left: -13px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 12px;
+            padding: 2px 3px 2px 0;
+    
+            &:hover {
+                .tooltipreaction {
+                    visibility: visible;
+                    opacity: 1;
+                }
+            }
+    
+            img {
+                position: relative; bottom: -3.5px; left: 0px;
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+            }
+    
+            .tooltipreaction {
+                visibility: hidden;
+                max-width: 50vw;
+                background-color: #333;
+                color: #fff;
+                text-align: left;
+                border-radius: 1px;
+                padding: 5px;
+                position: absolute;
+                z-index: 1;
+                bottom: 125%;
+                left: 50%;
+                margin-left: -60px;
+                opacity: 0;
+                transition: opacity 0.3s;
+                line-height: 20px;
+    
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    margin-left: -5px;
+                    border-width: 5px;
+                    border-style: solid;
+                    border-color: #333 transparent transparent transparent;
+                }
+            }
+        }
+    }
+}
+    

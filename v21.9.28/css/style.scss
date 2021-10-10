@@ -1,0 +1,115 @@
+@import 'header', 'nav', 'main', 'gallery', 'facebook', 'contact', 'footer', "topup";
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+body {
+    position: absolute;
+    top: 0 !important;
+    left: 0;
+    width: 100vw;
+    background-color: var(--body-primary);
+    color: var(--color-secondary); 
+    font-family: sans-serif;
+    font-size: 16px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    padding: 64px 0 0 0;
+
+    &.xbodyscrolling {
+        overflow-y: hidden;
+    }
+}
+
+    /* for hide google translate bar */
+    .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+    } 
+    .goog-logo-link {
+        display:none !important;
+    }
+    .goog-te-gadget{
+        color: transparent !important;
+    }
+    
+::-webkit-scrollbar { 
+    width: 1px; 
+    height: 1px; 
+    }
+::-webkit-scrollbar-thumb:hover { 
+    background: grey; 
+    }
+::-webkit-scrollbar-track { 
+    border-radius: 1px; 
+    }
+::-webkit-scrollbar-thumb { 
+    background: grey; 
+    border-radius: 1px; 
+    }
+frame, iframe {
+    position: absolute;
+    top: -40px;
+    left: -100%;
+    display: none;
+    height: 0;
+}
+
+// set Default Template
+a {
+    color: var(--link-primary);
+    cursor: pointer;
+    &:hover {
+        color: var(--link-hover-primary);
+    }
+}
+button {
+    background-color: var(--bg-primary);
+    color: var(--color-primary);
+    text-decoration: none;
+
+    &:active, &:checked, &:visited, &:focus {
+        border: 0;
+    }
+}
+
+.ending {
+    color: var(--color-secondary);
+    text-shadow: var(--text-shadow-primary);
+}
+
+hr {
+    border-bottom: 1px solid rgba(0,0,0,0.4);
+}
+
+.line {
+    background-color: var(--theme);
+    width: 100%;
+
+    display: grid;
+    grid-template-areas: "tab hr";
+    grid-template-columns: auto 1fr;
+    grid-template-rows: min-content;
+    flex-direction: row;
+    align-items: center;
+    grid-gap: 24px;
+
+    span {
+        grid-area: tab;
+        background-color: var(--bg-primary);
+        border-radius: 2px;
+        color: var(--color-primary);
+        font-weight: bold;
+        padding: 4px 12px 4px 4px;
+    }
+    div {
+        grid-area: hr;
+        width: 100%;
+
+        hr {
+            border-top: 4px solid var(--theme);
+        }
+    }
+}
